@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraMarket: Global Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        .aura-accent {
+            background: linear-gradient(90deg, #8b5cf6, #38bdf8);
+        }
+        .aura-text {
+            color: #38bdf8;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .rating-star {
+            color: #facc15;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'am-bg': '#0c0c0c',
+                        'am-card': '#1a1a1a',
+                        'am-light': '#2c2c2c',
+                        'am-violet': '#8b5cf6',
+                        'am-cyan': '#38bdf8',
+                        'am-success': '#10b981',
+                        'am-danger': '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-am-bg text-gray-100 font-sans min-h-screen pb-24">
+
+    <header class="sticky top-0 z-30 bg-am-bg bg-opacity-95 backdrop-blur-sm shadow-xl border-b border-am-light p-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between space-x-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl font-extrabold bg-clip-text text-transparent aura-accent inline-block p-1 rounded-lg">AuraMarket</span>
+                </div>
+                
+                <div class="flex-1 max-w-xl hidden md:block">
+                    <div class="relative">
+                        <input type="text" placeholder="Search millions of products, sellers, and deals..." class="w-full bg-am-card border border-am-light text-gray-200 py-3 pl-4 pr-12 rounded-lg focus:ring-2 focus:ring-am-cyan focus:border-am-cyan transition">
+                        <button class="absolute right-0 top-0 h-full w-12 text-am-cyan hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition flex items-center space-x-1">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3v-1m14-8V5a3 3 0 00-3-3H6a3 3 0 00-3 3v2" /></svg>
+                        <span class="hidden lg:inline text-sm">Sign In</span>
+                    </a>
+                    <button class="text-gray-400 hover:text-white transition p-2 rounded-full md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                    <a href="#" class="w-9 h-9 rounded-full bg-am-cyan flex items-center justify-center text-black font-bold text-sm border-2 border-am-violet ring-2 ring-am-cyan">JD</a>
+                </div>
+            </div>
+            
+            <div class="md:hidden mt-4">
+                 <div class="relative">
+                    <input type="text" placeholder="Search products, sellers, and deals..." class="w-full bg-am-card border border-am-light text-gray-200 py-2.5 pl-4 pr-12 rounded-lg focus:ring-2 focus:ring-am-cyan focus:border-am-cyan transition">
+                    <button class="absolute right-0 top-0 h-full w-12 text-am-cyan hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <aside class="w-full lg:w-64 flex-shrink-0 bg-am-card rounded-xl p-4 hidden lg:block">
+                <h3 class="text-lg font-bold mb-4 text-am-cyan">Departments</h3>
+                <nav class="space-y-2 text-sm">
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Electronics & Gadgets</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Fashion & Apparel</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Home & Kitchen</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Automotive (Jiji Style)</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Sports & Outdoors</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Groceries & Health</a>
+                    <a href="#" class="block text-gray-300 hover:text-white hover:bg-am-light p-2 rounded transition">Real Estate (Jiji Style)</a>
+                </nav>
+
+                <h3 class="text-lg font-bold mt-6 mb-4 text-am-cyan">Price Filter</h3>
+                <div class="space-y-3 text-sm">
+                    <input type="range" min="1" max="1000" value="500" class="w-full h-1 bg-am-light rounded-lg appearance-none cursor-pointer">
+                    <div class="flex justify-between text-xs text-gray-400">
+                        <span>$1</span>
+                        <span>$500</span>
+                        <span>$1000+</span>
+                    </div>
+                </div>
+                
+                <h3 class="text-lg font-bold mt-6 mb-4 text-am-cyan">Seller Rating</h3>
+                <div class="space-y-2">
+                    <label class="flex items-center text-sm cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-am-success bg-am-light border-am-light rounded focus:ring-am-success">
+                        <span class="ml-2 text-gray-300">4 Stars & Up</span>
+                    </label>
+                    <label class="flex items-center text-sm cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-am-success bg-am-light border-am-light rounded focus:ring-am-success">
+                        <span class="ml-2 text-gray-300">Aura Verified Sellers</span>
+                    </label>
+                </div>
+            </aside>
+            
+            <section class="flex-1">
+                
+                <!-- Main Header / Banner -->
+                <div class="relative bg-am-card rounded-2xl overflow-hidden shadow-xl mb-8 p-6 lg:p-10">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1200x300/38bdf8/ffffff?text=WEEKLY+DISCOUNT+DEALS');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-am-bg via-am-bg/50 to-transparent"></div>
+                    
+                    <div class="relative z-10 max-w-lg">
+                        <span class="text-sm font-bold tracking-widest uppercase text-am-cyan">Hot Deal Alert</span>
+                        <h1 class="text-3xl lg:text-4xl font-black mt-2 mb-4 leading-tight">Massive Savings on Local Electronics</h1>
+                        <p class="text-gray-300 mb-6 text-base">Get up to 40% off cameras, laptops, and phones from top-rated regional sellers.</p>
+                        
+                        <button class="bg-am-success text-am-bg px-6 py-3 rounded-xl font-bold hover:bg-am-success/80 transition shadow-lg">
+                            Explore Deals
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Jumia/Amazon Style Category Quick Links -->
+                 <div class="mb-8 border-b border-am-light pb-4 overflow-x-auto no-scrollbar">
+                    <h2 class="text-lg font-semibold mb-3">Quick Departments</h2>
+                    <div class="flex space-x-4">
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">📱</div>
+                            <p class="text-xs truncate">Phones</p>
+                        </a>
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">👟</div>
+                            <p class="text-xs truncate">Shoes</p>
+                        </a>
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">🎮</div>
+                            <p class="text-xs truncate">Gaming</p>
+                        </a>
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">🥕</div>
+                            <p class="text-xs truncate">Groceries</p>
+                        </a>
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">🏠</div>
+                            <p class="text-xs truncate">Furniture</p>
+                        </a>
+                        <a href="#" class="flex-shrink-0 text-center w-20 cursor-pointer p-2 rounded-lg bg-am-light hover:bg-am-light/70 transition">
+                            <div class="text-2xl mb-1">🚗</div>
+                            <p class="text-xs truncate">Cars</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Grid: High Density -->
+                <h2 class="text-2xl font-bold mb-4">Recommended for You</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    
+                    <div class="bg-am-card rounded-xl overflow-hidden shadow-lg hover:shadow-am-cyan/20 transition duration-300 group cursor-pointer">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/8b5cf6/ffffff?text=Wireless+Headphones" onerror="this.src='https://placehold.co/400x400/8b5cf6/ffffff?text=Wireless+Headphones'" alt="Product 1" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                            <span class="absolute top-2 right-2 bg-am-danger text-white text-xs font-bold px-2 py-0.5 rounded">HOT</span>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm text-gray-400 truncate mb-1">By: TechWorld Pro (98% ⭐)</p>
+                            <h3 class="text-base font-semibold truncate">AuraMax Wireless ANC Headset</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="text-gray-500">☆</span>
+                                <span class="text-xs text-gray-400 ml-2">(1,245)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-1 text-am-success">$129.99</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Lagos, Nigeria (Ready to Ship)</p>
+                            <button class="mt-3 w-full bg-am-cyan text-am-bg py-2 rounded-lg font-bold text-sm hover:bg-am-cyan/80 transition" onclick="addToCart({id:1, name:'AuraMax Headset', price:129.99, image:'https://placehold.co/50x50/8b5cf6/ffffff?text=H'})">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-am-card rounded-xl overflow-hidden shadow-lg hover:shadow-am-cyan/20 transition duration-300 group cursor-pointer">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/10b981/0c0c0c?text=Men's+Shirt" onerror="this.src='https://placehold.co/400x400/10b981/0c0c0c?text=Men's+Shirt'" alt="Product 2" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm text-gray-400 truncate mb-1">By: FashionHub NG (95% ⭐)</p>
+                            <h3 class="text-base font-semibold truncate">Tailored Slim-Fit Shirt</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="text-gray-500">☆☆</span>
+                                <span class="text-xs text-gray-400 ml-2">(420)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-1 text-am-success">$25.50</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Accra, Ghana (In Stock)</p>
+                            <button class="mt-3 w-full bg-am-cyan text-am-bg py-2 rounded-lg font-bold text-sm hover:bg-am-cyan/80 transition" onclick="addToCart({id:2, name:'Slim-Fit Shirt', price:25.50, image:'https://placehold.co/50x50/10b981/0c0c0c?text=S'})">Add</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-am-card rounded-xl overflow-hidden shadow-lg hover:shadow-am-cyan/20 transition duration-300 group cursor-pointer">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/38bdf8/0c0c0c?text=Kitchen+Blender" onerror="this.src='https://placehold.co/400x400/38bdf8/0c0c0c?text=Kitchen+Blender'" alt="Product 3" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                             <span class="absolute top-2 left-2 bg-am-success text-am-bg text-xs font-bold px-2 py-0.5 rounded">VERIFIED</span>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm text-gray-400 truncate mb-1">By: Trusted Appliances (100% ⭐)</p>
+                            <h3 class="text-base font-semibold truncate">ProBlend 500W Mixer</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span>
+                                <span class="text-xs text-gray-400 ml-2">(3,001)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-1 text-am-success">$49.99</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Nairobi, Kenya (Free Delivery)</p>
+                            <button class="mt-3 w-full bg-am-cyan text-am-bg py-2 rounded-lg font-bold text-sm hover:bg-am-cyan/80 transition" onclick="addToCart({id:3, name:'ProBlend Mixer', price:49.99, image:'https://placehold.co/50x50/38bdf8/0c0c0c?text=B'})">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-am-card rounded-xl overflow-hidden shadow-lg hover:shadow-am-cyan/20 transition duration-300 group cursor-pointer">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/ef4444/ffffff?text=Used+Motorbike" onerror="this.src='https://placehold.co/400x400/ef4444/ffffff?text=Used+Motorbike'" alt="Product 4" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm text-gray-400 truncate mb-1">By: Private Seller</p>
+                            <h3 class="text-base font-semibold truncate">Used Yamaha YBR 2021</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="text-gray-500">☆</span>
+                                <span class="text-xs text-gray-400 ml-2">(12)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-1 text-am-danger">$1,500.00</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Abidjan, CIV (Negotiable Price)</p>
+                            <button class="mt-3 w-full bg-am-cyan text-am-bg py-2 rounded-lg font-bold text-sm hover:bg-am-cyan/80 transition" onclick="addToCart({id:4, name:'Yamaha YBR 2021', price:1500.00, image:'https://placehold.co/50x50/ef4444/ffffff?text=M'})">Add</button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-am-card rounded-xl overflow-hidden shadow-lg hover:shadow-am-cyan/20 transition duration-300 group cursor-pointer hidden xl:block">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/8b5cf6/ffffff?text=Gaming+Monitor" onerror="this.src='https://placehold.co/400x400/8b5cf6/ffffff?text=Gaming+Monitor'" alt="Product 5" class="w-full h-36 object-cover group-hover:scale-105 transition duration-300">
+                        </div>
+                        <div class="p-3">
+                            <p class="text-sm text-gray-400 truncate mb-1">By: Tech Central</p>
+                            <h3 class="text-base font-semibold truncate">AuraView 27" 144Hz Monitor</h3>
+                            <div class="flex items-center mt-1">
+                                <span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span><span class="rating-star">★</span>
+                                <span class="text-xs text-gray-400 ml-2">(88)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-1 text-am-success">$299.00</p>
+                            <p class="text-xs text-gray-500 mt-0.5">Cape Town, SA (Inquire for Stock)</p>
+                            <button class="mt-3 w-full bg-am-cyan text-am-bg py-2 rounded-lg font-bold text-sm hover:bg-am-cyan/80 transition" onclick="addToCart({id:5, name:'AuraView Monitor', price:299.00, image:'https://placehold.co/50x50/8b5cf6/ffffff?text=MO'})">Add</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Persistent Bottom Bar (Cart Summary) -->
+    <div id="cart-summary" class="fixed bottom-0 left-0 right-0 z-40 bg-am-light shadow-2xl border-t border-am-light/50 p-3 lg:p-4">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            
+            <div class="flex items-center space-x-3 w-1/2">
+                <div id="cart-preview" class="flex items-center -space-x-2">
+                    <div id="empty-cart-icon" class="w-12 h-12 rounded-lg bg-am-card flex items-center justify-center text-xl font-bold shadow-lg">🛒</div>
+                </div>
+                <div class="hidden sm:block">
+                    <p id="item-count" class="text-sm font-semibold truncate">0 Items in Cart</p>
+                    <p class="text-xs text-gray-400 truncate">Tap to view details</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                 <div class="text-right mr-4 hidden sm:block">
+                    <p class="text-xs text-gray-400 uppercase font-medium">Cart Total</p>
+                    <p id="cart-total" class="text-xl font-extrabold text-am-success">$0.00</p>
+                </div>
+                <button id="checkout-button" class="bg-am-success text-am-bg px-6 py-3 rounded-xl font-bold transition duration-300 transform scale-100 shadow-xl opacity-50 cursor-not-allowed flex items-center" onclick="checkout()" disabled>
+                    <span class="mr-2">Checkout</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.327 5.312a1 1 0 00.95.789H17l-3 3-1 2H5.013A2.001 2.001 0 003 17h12l-1.5-3H6.012a2.001 2.001 0 01-1.41-3.41L5 8h10.59a1 1 0 00.999-.815L17 4H3z" /></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let cart = [];
+        
+        const cartTotalEl = document.getElementById('cart-total');
+        const itemCountEl = document.getElementById('item-count');
+        const cartPreviewEl = document.getElementById('cart-preview');
+        const checkoutButton = document.getElementById('checkout-button');
+        const emptyCartIcon = document.getElementById('empty-cart-icon');
+
+        function addToCart(product) {
+            cart.push(product);
+            updateCartUI();
+            alertMessage(`Added ${product.name} to cart!`);
+        }
+
+        function updateCartUI() {
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            
+            cartTotalEl.textContent = `$${total.toFixed(2)}`;
+            itemCountEl.textContent = `${cart.length} Item${cart.length !== 1 ? 's' : ''} in Cart`;
+
+            if (cart.length > 0) {
+                checkoutButton.disabled = false;
+                checkoutButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                checkoutButton.classList.add('hover:bg-am-success/80');
+            } else {
+                checkoutButton.disabled = true;
+                checkoutButton.classList.add('opacity-50', 'cursor-not-allowed');
+                checkoutButton.classList.remove('hover:bg-am-success/80');
+            }
+
+            cartPreviewEl.innerHTML = '';
+            if (cart.length === 0) {
+                 cartPreviewEl.appendChild(emptyCartIcon.cloneNode(true));
+            } else {
+                const previewItems = cart.slice(-3).reverse(); 
+                previewItems.forEach((item, index) => {
+                    const img = document.createElement('img');
+                    img.src = item.image; 
+                    img.alt = item.name;
+                    img.className = `w-12 h-12 rounded-lg object-cover shadow-lg border-2 border-am-light transition duration-300 transform hover:z-10`;
+                    img.style.zIndex = 3 - index;
+                    cartPreviewEl.appendChild(img);
+                });
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alertMessage("Your cart is empty. Add some items to proceed.");
+                return;
+            }
+            alertMessage(`Successfully initiated checkout for $${(cart.reduce((sum, item) => sum + item.price, 0)).toFixed(2)}. Processing order...`);
+            cart = [];
+            setTimeout(updateCartUI, 1000);
+        }
+
+        function alertMessage(message) {
+            const tempDiv = document.createElement('div');
+            tempDiv.className = 'fixed top-4 right-4 bg-am-violet text-white p-3 rounded-lg shadow-xl z-50 text-sm animate-pulse transition duration-500';
+            tempDiv.textContent = message;
+            document.body.appendChild(tempDiv);
+            
+            setTimeout(() => {
+                tempDiv.classList.add('opacity-0');
+                tempDiv.addEventListener('transitionend', () => tempDiv.remove());
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCartUI);
+    </script>
+
+</body>
+</html>
