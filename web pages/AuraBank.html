@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraBanking: Global Wallet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        .aura-accent {
+            background: linear-gradient(90deg, #8b5cf6, #38bdf8);
+        }
+        .aura-primary {
+            color: #38bdf8;
+        }
+        .ab-input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 1px #38bdf8;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'ab-bg': '#0a0a0a',
+                        'ab-card': '#1e1e1e',
+                        'ab-light': '#2c2c2c',
+                        'ab-primary': '#38bdf8', /* Cyan */
+                        'ab-secondary': '#8b5cf6', /* Violet */
+                        'ab-success': '#10b981',
+                        'ab-danger': '#ef4444',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-ab-bg text-gray-100 font-sans min-h-screen">
+
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        
+        <!-- Sidebar Navigation (Collapsed on mobile) -->
+        <aside class="bg-ab-card lg:w-64 flex-shrink-0 p-4 border-r border-ab-light">
+            <div class="flex items-center justify-between lg:justify-start mb-8 border-b border-ab-light pb-4">
+                <span class="text-2xl font-black bg-clip-text text-transparent aura-accent inline-block">AuraBank</span>
+                <button class="lg:hidden text-gray-400 hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </button>
+            </div>
+            
+            <nav class="space-y-2 text-sm hidden lg:block">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-xl bg-ab-primary text-ab-card font-semibold transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707l-.707-.707V8a6 6 0 00-6-6zM10 18a3 3 0 110-6 3 3 0 010 6z" /></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-400 hover:bg-ab-light hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    <span>Accounts</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-400 hover:bg-ab-light hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a1 1 0 00.837 1.24L10 17.5m7-3.5H3M17 3v4m-7 4h10a1 1 0 01.9 1.45l-1.5 3a1 1 0 01-.9.55H5m9-5l1-2h2" /></svg>
+                    <span>Transfers</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-400 hover:bg-ab-light hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2.18 2.18a.992.992 0 00-.07 1.05l1.05 3.15a1 1 0 01-.76 1.15L9 18l1.5-3a1 1 0 00-.76-1.15L7 13l-1.5 3a1 1 0 01-1.47-.78l1.04-3.15a.992.992 0 00-.07-1.05L4 7m0 0a2 2 0 114 0m-4 0a2 2 0 104 0m-3 8a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    <span>Crypto Trade</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-xl text-gray-400 hover:bg-ab-light hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 0112 8z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2a1.5 1.5 0 01-1.5-1.5v-1A1.5 1.5 0 0112 8z" /></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 p-4 lg:p-8 overflow-y-auto">
+            
+            <!-- Header and Balance Summary -->
+            <div class="flex flex-col sm:flex-row justify-between items-center pb-6 border-b border-ab-light mb-8">
+                <div class="mb-4 sm:mb-0">
+                    <h1 class="text-3xl font-bold">Welcome Back, JD.</h1>
+                    <p class="text-gray-400 text-sm">Your financial terminal is live and secure.</p>
+                </div>
+                <div class="text-right bg-ab-card p-4 rounded-xl shadow-lg border border-ab-light min-w-[200px]">
+                    <p class="text-sm text-gray-400 uppercase">Total Available Balance</p>
+                    <p id="total-balance" class="text-4xl font-extrabold text-ab-success mt-1">$45,872.50</p>
+                </div>
+            </div>
+
+            <!-- Grid of Core Functions -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+
+                <!-- 1. Currency Exchange Tool (Forex/USD Trading) -->
+                <div class="lg:col-span-2 bg-ab-card p-6 rounded-2xl shadow-xl border border-ab-light">
+                    <h2 class="text-xl font-bold mb-4 flex items-center space-x-2">
+                        <span class="aura-primary">Forex Terminal</span>
+                        <span class="text-sm text-gray-400 font-normal">| Real-Time Exchange</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="currency-amount" class="block text-sm font-medium mb-1 text-gray-400">Amount to Convert (USD)</label>
+                            <input type="number" id="currency-amount" value="1000" min="1" class="ab-input w-full bg-ab-bg text-white border border-ab-light p-3 rounded-lg transition" oninput="convertCurrency()">
+                        </div>
+                        <div>
+                            <label for="target-currency" class="block text-sm font-medium mb-1 text-gray-400">To Currency</label>
+                            <select id="target-currency" class="ab-input w-full bg-ab-bg text-white border border-ab-light p-3 rounded-lg transition" onchange="convertCurrency()">
+                                <option value="EUR">Euro (EUR)</option>
+                                <option value="GBP">British Pound (GBP)</option>
+                                <option value="JPY">Japanese Yen (JPY)</option>
+                                <option value="NGN">Nigerian Naira (NGN)</option>
+                                <option value="GHS">Ghanaian Cedi (GHS)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 p-4 bg-ab-light rounded-lg flex justify-between items-center">
+                        <p class="text-sm text-gray-400">Estimated Conversion Rate (USD to <span id="conversion-target-code">EUR</span>):</p>
+                        <p id="conversion-rate" class="font-bold text-am-cyan">1 USD = 0.92 EUR</p>
+                    </div>
+
+                    <div class="mt-4 p-4 bg-ab-light rounded-lg border-l-4 border-ab-secondary">
+                        <p class="text-sm text-gray-400">You will receive:</p>
+                        <p id="converted-result" class="text-3xl font-extrabold text-ab-secondary mt-1">920.00 EUR</p>
+                    </div>
+
+                    <button onclick="alertMessage('Currency conversion simulated. Funds are now available in your EUR account.')" class="mt-6 w-full py-3 rounded-xl font-bold text-ab-bg bg-ab-secondary hover:bg-ab-secondary/80 transition shadow-lg">
+                        Execute Conversion
+                    </button>
+                </div>
+
+                <!-- 2. Quick Transfer Card (PayPal Style Action) -->
+                <div class="bg-ab-card p-6 rounded-2xl shadow-xl border border-ab-light">
+                    <h2 class="text-xl font-bold mb-4 flex items-center space-x-2">
+                        <span class="aura-primary">Quick Transfer</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-ab-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label for="transfer-recipient" class="block text-sm font-medium mb-1 text-gray-400">Recipient (Email/Aura ID)</label>
+                            <input type="text" id="transfer-recipient" placeholder="jane.doe@example.com" class="ab-input w-full bg-ab-bg text-white border border-ab-light p-3 rounded-lg transition">
+                        </div>
+                        <div>
+                            <label for="transfer-amount" class="block text-sm font-medium mb-1 text-gray-400">Amount (USD)</label>
+                            <input type="number" id="transfer-amount" value="100.00" min="1" class="ab-input w-full bg-ab-bg text-white border border-ab-light p-3 rounded-lg transition">
+                        </div>
+                    </div>
+                    
+                    <button onclick="transferFunds()" class="mt-6 w-full py-3 rounded-xl font-bold text-ab-bg bg-ab-success hover:bg-ab-success/80 transition shadow-lg">
+                        Send Funds Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Crypto Trading and Portfolio -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center space-x-3">
+                    <span class="aura-primary">Crypto Portfolio</span>
+                    <span class="text-sm text-gray-400 font-normal">| Live Trading View</span>
+                </h2>
+                
+                <div class="bg-ab-card p-6 rounded-2xl shadow-xl border border-ab-light">
+                    <!-- Portfolio Summary -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 pb-4 border-b border-ab-light">
+                        <div>
+                            <p class="text-sm text-gray-400">Net Worth</p>
+                            <p class="text-xl font-bold mt-1 text-ab-secondary">$8,542.90</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">24h Change</p>
+                            <p class="text-xl font-bold mt-1 text-ab-success">+3.52%</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Current BTC Price</p>
+                            <p class="text-xl font-bold mt-1 text-gray-100">$64,890.12</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Active Trades</p>
+                            <p class="text-xl font-bold mt-1 text-ab-primary">2</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Crypto Assets Table -->
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-ab-light">
+                            <thead>
+                                <tr class="text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                    <th class="py-3">Asset</th>
+                                    <th class="py-3">Holdings</th>
+                                    <th class="py-3 hidden sm:table-cell">Price (USD)</th>
+                                    <th class="py-3 text-right">24h %</th>
+                                    <th class="py-3 text-right">Value (USD)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-ab-light text-sm">
+                                <tr class="hover:bg-ab-light transition">
+                                    <td class="py-4 font-medium flex items-center space-x-3"><span class="text-3xl">₿</span><span>Bitcoin (BTC)</span></td>
+                                    <td class="py-4">0.05 BTC</td>
+                                    <td class="py-4 hidden sm:table-cell">$64,890.12</td>
+                                    <td class="py-4 text-right text-ab-success">+2.15%</td>
+                                    <td class="py-4 text-right font-bold">$3,244.51</td>
+                                </tr>
+                                <tr class="hover:bg-ab-light transition">
+                                    <td class="py-4 font-medium flex items-center space-x-3"><span class="text-3xl">Ξ</span><span>Ethereum (ETH)</span></td>
+                                    <td class="py-4">1.2 ETH</td>
+                                    <td class="py-4 hidden sm:table-cell">$3,950.40</td>
+                                    <td class="py-4 text-right text-ab-danger">-0.78%</td>
+                                    <td class="py-4 text-right font-bold">$4,740.48</td>
+                                </tr>
+                                <tr class="hover:bg-ab-light transition">
+                                    <td class="py-4 font-medium flex items-center space-x-3"><span class="text-3xl">◎</span><span>AuraCoin (AUR)</span></td>
+                                    <td class="py-4">5,000 AUR</td>
+                                    <td class="py-4 hidden sm:table-cell">$0.11</td>
+                                    <td class="py-4 text-right text-ab-success">+15.22%</td>
+                                    <td class="py-4 text-right font-bold">$550.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="alertMessage('Trading interface loaded. Place your buy/sell orders.')" class="bg-ab-primary text-ab-bg px-6 py-3 rounded-xl font-bold hover:bg-ab-primary/80 transition">
+                            Open Trade Panel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Exchange rates (mock data)
+        const rates = {
+            'EUR': 0.92, 
+            'GBP': 0.81, 
+            'JPY': 152.00,
+            'NGN': 1450.00,
+            'GHS': 13.50
+        };
+
+        const conversionRateEl = document.getElementById('conversion-rate');
+        const convertedResultEl = document.getElementById('converted-result');
+        const targetCurrencyEl = document.getElementById('target-currency');
+        const conversionTargetCodeEl = document.getElementById('conversion-target-code');
+
+        function convertCurrency() {
+            const amount = parseFloat(document.getElementById('currency-amount').value);
+            const target = targetCurrencyEl.value;
+            const rate = rates[target] || 1.0; 
+            
+            if (isNaN(amount) || amount <= 0) {
+                convertedResultEl.textContent = '0.00 ' + target;
+                conversionRateEl.textContent = `1 USD = ${rate.toFixed(2)} ${target}`;
+                conversionTargetCodeEl.textContent = target;
+                return;
+            }
+
+            const result = amount * rate;
+            convertedResultEl.textContent = `${result.toFixed(2)} ${target}`;
+            conversionRateEl.textContent = `1 USD = ${rate.toFixed(2)} ${target}`;
+            conversionTargetCodeEl.textContent = target;
+        }
+
+        function transferFunds() {
+            const recipient = document.getElementById('transfer-recipient').value;
+            const amount = parseFloat(document.getElementById('transfer-amount').value);
+
+            if (!recipient || isNaN(amount) || amount <= 0) {
+                alertMessage('Please enter a valid recipient and amount.', 'ab-danger');
+                return;
+            }
+            
+            alertMessage(`Successfully sent $${amount.toFixed(2)} to ${recipient}.`, 'ab-success');
+            document.getElementById('transfer-recipient').value = '';
+            document.getElementById('transfer-amount').value = '0.00';
+        }
+
+        function alertMessage(message, colorClass = 'bg-ab-secondary') {
+            const tempDiv = document.createElement('div');
+            tempDiv.className = `fixed top-4 right-4 ${colorClass} text-white p-4 rounded-xl shadow-2xl z-50 text-base font-medium animate-pulse transition duration-500 transform translate-y-0 opacity-100`;
+            tempDiv.textContent = message;
+            document.body.appendChild(tempDiv);
+            
+            setTimeout(() => {
+                tempDiv.classList.remove('translate-y-0', 'opacity-100');
+                tempDiv.classList.add('translate-y-4', 'opacity-0');
+                tempDiv.addEventListener('transitionend', () => tempDiv.remove());
+            }, 3500);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            convertCurrency();
+        });
+    </script>
+
+</body>
+</html>
