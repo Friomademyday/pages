@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraFlow: Content Harmony</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+        
+        .aura-accent {
+            background: linear-gradient(90deg, #8b5cf6, #38bdf8);
+        }
+        .aura-text {
+            color: #38bdf8;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'af-bg': '#121212',
+                        'af-card': '#1e1e1e',
+                        'af-light': '#2a2a2a',
+                        'af-violet': '#8b5cf6',
+                        'af-cyan': '#38bdf8',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-af-bg text-gray-100 font-sans min-h-screen pb-20">
+
+    <header class="sticky top-0 z-20 bg-af-bg bg-opacity-95 backdrop-blur-sm shadow-lg p-4">
+        <div class="flex justify-between items-center max-w-6xl mx-auto">
+            <div class="flex items-center space-x-4">
+                <span class="text-3xl font-extrabold bg-clip-text text-transparent aura-accent inline-block p-1 rounded-lg">AuraFlow</span>
+                <nav class="hidden sm:flex space-x-6 text-sm font-semibold">
+                    <a href="#" class="aura-text hover:text-white transition">Home</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Video</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Audio</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">People</a>
+                </nav>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-400 hover:text-white transition p-2 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </button>
+                <a href="#" class="w-9 h-9 rounded-full bg-af-cyan flex items-center justify-center text-black font-bold text-sm border-2 border-af-violet ring-2 ring-af-cyan">
+                    JD
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+
+        <section class="mb-8 border-b border-af-light pb-4 overflow-x-auto no-scrollbar">
+            <h2 class="text-lg font-semibold mb-3">Today's Focus</h2>
+            <div class="flex space-x-4">
+                <div class="flex-shrink-0 text-center w-16 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-af-card border-2 border-af-violet p-0.5 flex items-center justify-center">
+                        <div class="w-full h-full rounded-full bg-af-light flex items-center justify-center text-3xl">💡</div>
+                    </div>
+                    <p class="text-xs mt-1 text-gray-400 truncate">New EPs</p>
+                </div>
+                <div class="flex-shrink-0 text-center w-16 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-af-card border-2 border-af-cyan p-0.5">
+                        <img src="https://placehold.co/60x60/38bdf8/ffffff?text=F" onerror="this.src='https://placehold.co/60x60/8b5cf6/ffffff?text=F'" alt="Story 2" class="rounded-full w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs mt-1 truncate">Friends</p>
+                </div>
+                <div class="flex-shrink-0 text-center w-16 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-af-card border-2 border-gray-500 p-0.5">
+                        <img src="https://placehold.co/60x60/8b5cf6/ffffff?text=V" onerror="this.src='https://placehold.co/60x60/8b5cf6/ffffff?text=V'" alt="Story 3" class="rounded-full w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs mt-1 truncate">Viral Clips</p>
+                </div>
+                <div class="flex-shrink-0 text-center w-16 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-af-card border-2 border-gray-500 p-0.5">
+                        <img src="https://placehold.co/60x60/1e1e1e/ffffff?text=T" onerror="this.src='https://placehold.co/60x60/8b5cf6/ffffff?text=T'" alt="Story 4" class="rounded-full w-full h-full object-cover">
+                    </div>
+                    <p class="text-xs mt-1 truncate">Trends</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <div class="relative bg-af-card rounded-2xl overflow-hidden shadow-xl p-6 lg:p-10">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://placehold.co/1200x400/38bdf8/ffffff?text=FEATURED+AURAFLOW');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-af-bg via-af-bg/50 to-transparent"></div>
+                
+                <div class="relative z-10 max-w-lg">
+                    <span class="text-sm font-bold tracking-widest uppercase aura-text">Featured Flow</span>
+                    <h1 class="text-4xl lg:text-5xl font-black mt-2 mb-4 leading-tight">The Quantum Echoes: Season 2 Premiere</h1>
+                    <p class="text-gray-300 mb-6 text-base">A mind-bending sci-fi series that explores memory, identity, and the boundaries of reality. New episode drops tonight.</p>
+                    
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-black px-6 py-3 rounded-xl font-bold hover:bg-gray-200 transition shadow-lg flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                            Watch Now
+                        </button>
+                        <button class="bg-af-light text-white px-6 py-3 rounded-xl font-semibold hover:bg-af-light/70 transition shadow-lg flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Your Curated Flow</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="bg-af-card rounded-xl overflow-hidden shadow-xl hover:shadow-af-cyan/20 transition duration-300 group cursor-pointer">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x250/8b5cf6/ffffff?text=Video+Clip+1" onerror="this.src='https://placehold.co/400x250/8b5cf6/ffffff?text=Video+Clip+1'" alt="Content 1" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                             <button class="text-white p-3 rounded-full bg-af-cyan/70 hover:bg-af-cyan text-xl">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold truncate">Quick Byte: The Future of Energy</h3>
+                        <p class="text-sm text-gray-400 mt-1 flex items-center space-x-2">
+                            <span>5 min video</span>
+                            <span class="text-af-violet">•</span>
+                            <span class="text-xs">@ScienceDaily</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-af-card rounded-xl overflow-hidden shadow-xl hover:shadow-af-cyan/20 transition duration-300 group cursor-pointer">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x250/38bdf8/000000?text=Synthwave+Album" onerror="this.src='https://placehold.co/400x250/38bdf8/000000?text=Synthwave+Album'" alt="Content 2" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                             <button class="text-white p-3 rounded-full bg-af-violet/70 hover:bg-af-violet text-xl">🎧</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold truncate">New Release: Neon Highways</h3>
+                        <p class="text-sm text-gray-400 mt-1 flex items-center space-x-2">
+                            <span>Album</span>
+                            <span class="text-af-violet">•</span>
+                            <span class="text-xs">The Digital Wave</span>
+                        </p>
+                    </div>
+                </div>
+                
+                 <div class="bg-af-card rounded-xl overflow-hidden shadow-xl hover:shadow-af-cyan/20 transition duration-300 group cursor-pointer">
+                    <div class="relative">
+                        <img src="https://placehold.co/400x250/8b5cf6/ffffff?text=Podcast+Logo" onerror="this.src='https://placehold.co/400x250/8b5cf6/ffffff?text=Podcast+Logo'" alt="Content 3" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                             <button class="text-white p-3 rounded-full bg-af-cyan/70 hover:bg-af-cyan text-xl">▶</button>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold truncate">Deep Dive: Habit Formation (S01E03)</h3>
+                        <p class="text-sm text-gray-400 mt-1 flex items-center space-x-2">
+                            <span>Podcast</span>
+                            <span class="text-af-violet">•</span>
+                            <span class="text-xs">35 min</span>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Trending in Your Network</h2>
+            <div class="flex overflow-x-auto space-x-4 no-scrollbar">
+                
+                <div class="flex-shrink-0 w-48 bg-af-card rounded-lg overflow-hidden shadow-md hover:scale-[1.03] transition duration-300 cursor-pointer">
+                    <img src="https://placehold.co/300x180/1e1e1e/ffffff?text=Horizon+Movie" onerror="this.src='https://placehold.co/300x180/1e1e1e/ffffff?text=Horizon+Movie'" alt="Carousel 1" class="w-full h-28 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-base font-semibold truncate">The Silent Horizon</h4>
+                        <p class="text-xs text-gray-400">Movie • 2024</p>
+                    </div>
+                </div>
+                
+                <div class="flex-shrink-0 w-48 bg-af-card rounded-lg overflow-hidden shadow-md hover:scale-[1.03] transition duration-300 cursor-pointer">
+                    <img src="https://placehold.co/300x180/1e1e1e/ffffff?text=Coding+Lesson" onerror="this.src='https://placehold.co/300x180/1e1e1e/ffffff?text=Coding+Lesson'" alt="Carousel 2" class="w-full h-28 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-base font-semibold truncate">Code Flow Mastery</h4>
+                        <p class="text-xs text-gray-400">Tutorial • 4 videos</p>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 w-48 bg-af-card rounded-lg overflow-hidden shadow-md hover:scale-[1.03] transition duration-300 cursor-pointer">
+                    <img src="https://placehold.co/300x180/1e1e1e/ffffff?text=Nature+Doc" onerror="this.src='https://placehold.co/300x180/1e1e1e/ffffff?text=Nature+Doc'" alt="Carousel 3" class="w-full h-28 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-base font-semibold truncate">Wilderness Whispers</h4>
+                        <p class="text-xs text-gray-400">Documentary</p>
+                    </div>
+                </div>
+                
+                 <div class="flex-shrink-0 w-48 bg-af-card rounded-lg overflow-hidden shadow-md hover:scale-[1.03] transition duration-300 cursor-pointer">
+                    <img src="https://placehold.co/300x180/1e1e1e/ffffff?text=Ambient+Track" onerror="this.src='https://placehold.co/300x180/1e1e1e/ffffff?text=Ambient+Track'" alt="Carousel 4" class="w-full h-28 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-base font-semibold truncate">Study Beats: Focus I</h4>
+                        <p class="text-xs text-gray-400">Playlist • 12 tracks</p>
+                    </div>
+                </div>
+
+                 <div class="flex-shrink-0 w-48 bg-af-card rounded-lg overflow-hidden shadow-md hover:scale-[1.03] transition duration-300 cursor-pointer">
+                    <img src="https://placehold.co/300x180/1e1e1e/ffffff?text=Tech+Review" onerror="this.src='https://placehold.co/300x180/1e1e1e/ffffff?text=Tech+Review'" alt="Carousel 5" class="w-full h-28 object-cover">
+                    <div class="p-3">
+                        <h4 class="text-base font-semibold truncate">Future Gadgets</h4>
+                        <p class="text-xs text-gray-400">Channel</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <div id="player-bar" class="fixed bottom-0 left-0 right-0 z-30 bg-af-light shadow-2xl border-t border-af-light/50 p-3 lg:p-4">
+        <div class="flex items-center justify-between max-w-6xl mx-auto">
+            
+            <div class="flex items-center space-x-3 w-1/3 min-w-[150px]">
+                <img id="track-cover" src="https://placehold.co/50x50/38bdf8/000000?text=🎧" onerror="this.src='https://placehold.co/50x50/38bdf8/000000?text=🎧'" alt="Track Cover" class="w-12 h-12 rounded-lg object-cover shadow-lg">
+                <div class="hidden sm:block">
+                    <p id="track-title" class="text-sm font-semibold truncate">Ambient Flow State</p>
+                    <p id="track-artist" class="text-xs text-gray-400 truncate">Vaporwave Sampler</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center w-1/3 hidden md:flex">
+                <div class="flex space-x-6 mb-2">
+                    <button class="text-gray-400 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2h-.581M14 9l-3 3m0 0l-3-3m3 3V3" /></svg>
+                    </button>
+                    <button class="text-white hover:text-gray-300 transition" onclick="playerAction('previous')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" /></svg>
+                    </button>
+                    <button id="play-button" class="bg-af-cyan text-black p-2 rounded-full hover:bg-af-violet transition duration-300 transform scale-105 shadow-xl" onclick="togglePlay()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <button class="text-white hover:text-gray-300 transition" onclick="playerAction('next')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" /></svg>
+                    </button>
+                    <button class="text-gray-400 hover:text-white transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2h-.581" /></svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center w-full space-x-2 text-xs text-gray-400">
+                    <span id="current-time">0:45</span>
+                    <div class="flex-1 h-1.5 bg-af-card rounded-full">
+                        <div id="progress-bar" class="h-1.5 rounded-full bg-af-cyan w-1/4 transition-all duration-100"></div>
+                    </div>
+                    <span id="total-time">3:20</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 w-1/3 justify-end">
+                <button class="md:hidden text-white p-2 rounded-full bg-af-card hover:bg-af-light transition" onclick="togglePlay()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                </button>
+                
+                <div class="hidden lg:flex items-center space-x-2 w-32">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.121-7.072a7 7 0 010 9.9m2.121-9.9a9 9 0 010 12.728M8 12H4a1 1 0 01-1-1V5a1 1 0 011-1h4l6-6v18l-6-6z" /></svg>
+                    <input type="range" min="0" max="100" value="70" class="w-full h-1 bg-af-card rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let isPlaying = false;
+        const playButton = document.getElementById('play-button');
+        const progressBar = document.getElementById('progress-bar');
+        
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                `;
+                console.log("AuraFlow Player: Playing...");
+            } else {
+                playButton.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                    </svg>
+                `;
+                console.log("AuraFlow Player: Paused.");
+            }
+            playButton.classList.toggle('bg-af-cyan', !isPlaying);
+            playButton.classList.toggle('bg-af-violet', isPlaying);
+        }
+
+        function playerAction(action) {
+            alertMessage(`Player action: ${action} track.`);
+        }
+
+        function alertMessage(message) {
+            const tempDiv = document.createElement('div');
+            tempDiv.className = 'fixed top-4 right-4 bg-af-violet text-white p-3 rounded-lg shadow-xl z-50 text-sm animate-pulse transition duration-500';
+            tempDiv.textContent = message;
+            document.body.appendChild(tempDiv);
+            
+            setTimeout(() => {
+                tempDiv.classList.add('opacity-0');
+                tempDiv.addEventListener('transitionend', () => tempDiv.remove());
+            }, 2500);
+        }
+        
+        let progress = 25;
+        function updateProgress() {
+            if (isPlaying) {
+                progress = (progress + 0.1) % 100;
+                progressBar.style.width = `${progress}%`;
+                requestAnimationFrame(updateProgress);
+            } else {
+                requestAnimationFrame(updateProgress);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgress();
+        });
+
+        const mobilePlayButton = document.querySelector('.md\\:hidden');
+        if (mobilePlayButton) {
+             mobilePlayButton.onclick = togglePlay;
+        }
+
+    </script>
+
+</body>
+</html>
